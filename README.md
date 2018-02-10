@@ -19,5 +19,8 @@ npm install
 npm start
 ```
 
+### Development
+A [Postman](https://www.getpostman.com/) collection and environments (`dev` and `production`) are included in this repository to support API development - they are located in the `.postman` directory. Read the Postman [documentation](https://www.getpostman.com/docs/postman/collections/data_formats) about importing collections and environments.
+
 ## License
 [MIT License](http://opensource.org/licenses/MIT).
