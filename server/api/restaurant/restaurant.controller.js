@@ -1,15 +1,22 @@
-const Contact = require('./restaurant.model')
+const Restaurant = require('./restaurant.model')
 
 // // // //
+
 
 // Query / Sort / Paginate
 const buildQuery = (opts) => {
 
+    // Defines the attributes returned when searching
+    const searchResultAttrs = ['_id', 'facility']
+
     // Defines return payload object
     let payload = {};
 
+    // Handles default query
+    let query = opts.query || {};
+
     // Defines Mongoose query
-    query = opts.schema.find(opts.query || {});
+    query = opts.schema.find(query, searchResultAttrs);
 
     // Sort
     if (opts.sort) {
@@ -44,16 +51,12 @@ const buildQuery = (opts) => {
 
 // // // //
 
-// GET /contacts
-// TODO - pagination (middleware?)
+// GET /restaurants
 module.exports.list = (req, res, next) => {
-    // return Device.find({}).then(function(response) {
-    //     return res.status(200).send(response).end();
-    // }).catch(next);
 
     // Build paginated query
     let payload = buildQuery({
-        schema:     Contact,
+        schema:     Restaurant,
         paginate:   true,
         page:       req.query.page,
         per_page:   req.query.per_page
@@ -70,6 +73,15 @@ module.exports.list = (req, res, next) => {
             items:      response })
         .end();
 
+    }).catch(next);
+};
+
+// // // //
+
+// GET /restaurants/:id
+module.exports.show = (req, res, next) => {
+    return Restaurant.find({ _id: req.params.id }).then((response) => {
+        return res.status(200).send(response).end();
     }).catch(next);
 };
 
