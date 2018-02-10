@@ -1,0 +1,95 @@
+{
+	"info": {
+		"name": "InspectorRestaurant",
+		"_postman_id": "21a9078e-9a6f-2cb7-4027-13a036e41fc7",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/restaurants/:id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{host}}/restaurants/5a7f5360e062de0025c5f93e",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"restaurants",
+						"5a7f5360e062de0025c5f93e"
+					]
+				},
+				"description": "Requests an individual Restaurant from the server. Response includes nested address and inspections."
+			},
+			"response": []
+		},
+		{
+			"name": "/violations",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{host}}/violations",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"violations"
+					]
+				},
+				"description": "Requests all Violation definitions from the server. "
+			},
+			"response": []
+		},
+		{
+			"name": "/restaurants/search",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{host}}/restaurants/search?q=mcdonald",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"restaurants",
+						"search"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "mcdonald",
+							"equals": true
+						}
+					]
+				},
+				"description": "Requests a list of Restaurants from the server corresponding to a user's query."
+			},
+			"response": []
+		},
+		{
+			"name": "/restaurants",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{host}}/restaurants",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"restaurants"
+					]
+				},
+				"description": "Requests a paginated list of Restaurants from the server"
+			},
+			"response": []
+		}
+	]
+}
