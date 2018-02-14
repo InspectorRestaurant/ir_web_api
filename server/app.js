@@ -14,8 +14,8 @@ app.use(bodyParser.json());
 // print the request log on console
 app.use(morgan('dev'));
 
-// Boostrap API routes - scopes all routes under /api
-app.use('/api', require('./routes'));
+// Boostrap API routes - scopes all routes under /
+app.use(require('./routes'));
 
 // // // //
 
