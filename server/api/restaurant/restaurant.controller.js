@@ -65,7 +65,7 @@ module.exports.list = (req, res, next) => {
     // Returns paginated query
     return payload.query.lean().exec().then( (response) => {
 
-        // res.setHeader('Cache-Control', 'max-age=15')
+        res.setHeader('Cache-Control', 'max-age=604800, public')
 
         return res.status(200).send({
             page:       payload.page,
