@@ -3,8 +3,6 @@ const Restaurant = require('./restaurant.model')
 // Defines the attributes returned when searching
 const searchResultAttrs = ['_id', 'facility', 'operation_name', 'corp_name', 'address.city', 'address.zipcode']
 
-// // // //
-
 // Defines default pagination options
 function handlePagination (req) {
     let page = Number(req.query.page) || 1;
@@ -16,7 +14,15 @@ function handlePagination (req) {
 
 // // // //
 
-// GET /restaurants
+/**
+* @api {get} /api/restaurants List
+* @apiName list
+* @apiGroup Restaurant
+* @apiDescription Gets a paginated list of Restaurants
+* @apiPermission public
+* @apiSuccess {Collection} root Collection of Restaurant records
+* @apiError (500) UnknownException Could not retrieve Restaurant collection
+*/
 module.exports.list = (req, res, next) => {
 
     let query = {}
@@ -44,9 +50,15 @@ module.exports.list = (req, res, next) => {
       })
 };
 
-// // // //
-
-// GET /restaurants/search
+/**
+* @api {get} /api/restaurants/search Search
+* @apiName search
+* @apiGroup Restaurant
+* @apiDescription Gets a paginated list of Restaurants of a particular city and query
+* @apiPermission public
+* @apiSuccess {Collection} root Collection of Restaurant records matching the query
+* @apiError (500) UnknownException Could not retrieve Restaurant collection
+*/
 module.exports.search = (req, res, next) => {
 
     // Handles user queries
@@ -95,9 +107,15 @@ module.exports.search = (req, res, next) => {
       })
 };
 
-// // // //
-
-// GET /restaurants/:id
+/**
+* @api {get} /api/restaurants/:id Show
+* @apiName show
+* @apiGroup Restaurant
+* @apiDescription Gets a Restaurant and all associated inspections
+* @apiPermission public
+* @apiSuccess {Model} root Restaurant with inspections records
+* @apiError (500) UnknownException Could not retrieve Restaurant model
+*/
 module.exports.show = (req, res, next) => {
     return Restaurant.findOne({ _id: req.params.id })
     .then((response) => {
@@ -107,5 +125,3 @@ module.exports.show = (req, res, next) => {
         .end();
     }).catch(next);
 };
-
-// // // //
