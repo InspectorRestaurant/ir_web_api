@@ -30,3 +30,11 @@ Documentation is auto-generated from [APIDoc.JS](http://apidocjs.com). Build the
 
 ## License
 [MIT License](http://opensource.org/licenses/MIT).
+
+### Technologies used
+
+- [Express.js](https://expressjs.com/)
+
+- [Mongoose](http://mongoosejs.com/)
+
+- [dotenv](https://www.npmjs.com/package/dotenv)
