@@ -14,9 +14,14 @@ app.use(bodyParser.json());
 // print the request log on console
 app.use(morgan('dev'));
 
+// Connect to MongoDB
+const mongoose = require('mongoose')
+mongoose.connect(process.env.DB)
+
+// TODO - enable/disable mount point when running in dev/production
 // Boostrap API routes - scopes all routes under /
-// app.use('/api', require('./routes'));
-app.use(require('./routes'));
+app.use('/api', require('./routes'));
+// app.use(require('./routes'));
 
 // // // //
 

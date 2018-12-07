@@ -1,6 +1,7 @@
 {
   "name": "ir_web_api",
   "version": "1.0.0",
+  "main": "index.js",
   "scripts": {
     "start": "nodemon -L ./server/bin/www.js",
     "apidoc": "apidoc -i ./server/api -o doc/"
@@ -9,16 +10,16 @@
   "dependencies": {
     "body-parser": "^1.15.2",
     "dotenv": "^4.0.0",
-    "elasticsearch-odm-5": "^0.4.1",
     "express": "^4.14.0",
-    "jsonwebtoken": "^7.1.9",
+    "mongodb": "^3.1.10",
     "mongoose": "^4.7.1",
     "morgan": "^1.7.0",
     "nodemon": "^1.12.1",
-    "redis": "^2.8.0"
+    "serverless-http": "^1.6.0"
   },
   "devDependencies": {
     "apidoc": "^0.17.6",
-    "eslint": "^3.11.1"
+    "eslint": "^3.11.1",
+    "serverless-offline": "^3.25.9"
   }
 }
