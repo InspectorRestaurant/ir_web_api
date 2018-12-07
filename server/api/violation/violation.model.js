@@ -3,6 +3,8 @@ const Schema = mongoose.Schema
 
 // // // //
 
+delete mongoose.connection.models['Violation'];
+
 const Violation = new Schema({
     vid: {
         type: String
